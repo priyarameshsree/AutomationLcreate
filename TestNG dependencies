@@ -1,0 +1,30 @@
+package testNgFramework;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+public class Dependencyeg {
+	WebDriver Driver;
+	@Test(enabled=true)
+	public void a_number_one() {
+		System.out.println("printing number 1");
+	
+	}
+	@Test(dependsOnMethods="a_number_one")
+	public void b_number_two() {
+		System.out.println("printing even number 2");
+	}
+	@Test(dependsOnMethods="b_number_two")
+	public void c_number_three() {
+		System.out.println("printing odd number three");
+	}
+	@Test(dependsOnMethods="c_number_three")
+	public void d_number_four() {
+		System.out.println("printing even number four");
+	}
+	@Test(dependsOnMethods="d_number_four")
+	public void e_number_five() {
+		System.out.println("printing odd number five");
+	}
+
+}
